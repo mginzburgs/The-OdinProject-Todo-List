@@ -7,7 +7,65 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="page">
+    <div class="page-container">
+        <header class="header">
+            <div class="header__logo">
+                <img src="assets/Header__logo.png" alt="logo" class="header__logo-img">
+                <p class="header__logo-text">TASKIT</p>
+            </div>
+            <div class="header__dropdown dropdown">
+                <button class="dropdown__toggle">Select project <img src="./assets/menu-toggle.png"
+                        alt="toggle"></button>
+                <ul class="dropdown__menu">
+                    <li class="dropdown__item">Project 1</li>
+                    <li class="dropdown__item">Project 2</li>
+                    <li class="dropdown__item">Project 3</li>
+                </ul>
+
+
+            </div>
+            <div class="header__add-project add-project">
+                <button class="add-project__button">
+                    <img src="./assets/add-icon.svg" alt="add-project">
+                </button>
+            </div>
+        </header>
+        <main class="page-container__main main">
+
+            <ul class="main__projects-list">
+                <li class="projects-list__project-card project-card">
+                    <ul class="project-card__task-list task-list">
+                        <li class="task-list__task-card task-card">
+                            <p class="task-card__priority">H</p>
+                            <p class="task-card__task-name">Design Header Element</p>
+                            <div class="task-card__time-left time-left">
+                                <img src="./assets/time-icon.svg" alt="time left">
+                                <p class="time-left__time">24d 24h 15min</p>
+                            </div>
+                            <div class="task-card__task-controls task-controls">
+                                <img src="./assets/edit-icon.svg" alt="edit" class="task-controls__icon">
+                                <img src="./assets/trash-icon.svg" alt="trash" class="task-controls__icon">
+                            </div>
+                        </li>
+                        <div class="task-list__add-task add-task">
+                            <button class="add-task__add-button add-button">
+                                <img src="./assets/add-icon.svg" alt="add-project">
+                            </button>
+                        </div>
+                    </ul>
+                </li>
+
+
+            </ul>
+
+        </main>
+
+        <footer class="footer">
+            <p class="footer__text">TASKIT BY MGINZBURGS 2024</p>
+        </footer>
+
+    </div>
 
 </body>
 
