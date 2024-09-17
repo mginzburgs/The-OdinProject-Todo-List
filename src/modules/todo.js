@@ -1,9 +1,12 @@
+import { intervalToDuration } from "date-fns";
+
 const createToDo = (task, deadline, priority) => {
   const id = Date.now();
   let isCompleted = false;
   return {
+    id,
     task,
-    deadline,
+    deadline: new Date(deadline).getTime(),
     priority,
     isCompleted,
 
@@ -17,7 +20,7 @@ const createToDo = (task, deadline, priority) => {
       return this.deadline;
     },
     setDeadLine(time) {
-      this.deadline = time;
+      this.deadline = new Date(time).getTime();
     },
     toggleComplete() {
       this.isCompleted = !this.isCompleted;
@@ -30,6 +33,10 @@ const createToDo = (task, deadline, priority) => {
     },
     getNote() {
       return this.note;
+    },
+    getTimeLeft() {
+      const now = Date.now();
+      return intervalToDuration({ end: this.deadline, start: now });
     },
   };
 };

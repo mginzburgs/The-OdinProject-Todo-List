@@ -1,37 +1,38 @@
-import printPage from "./modules/dom";
-import createProject from "./modules/project";
+import createProject from "./modules/backend/project";
+import storage from "./modules/backend/storage";
+import createTask from "./modules/backend/task";
+import sortData from "./modules/backend/sortData";
+import render from "./modules/frontend/render";
 
 const app = () => {
-  const projects = [];
-
   return {
-    getProjects() {
-      return projects;
-    },
-
-    getProject(id) {
-      let project = projects.find((e) => e.getId() == id);
-      return project;
-    },
-
-    getProjectByName(projectName) {
-      let project = projects.find(
-        (e) => e.project.toLowerCase() == projectName.toLowerCase()
-      );
-      return project;
-    },
-
-    addProject(project) {
-      projects.push(createProject(project));
-    },
+    createProject,
+    storage,
+    createTask,
+    sortData,
+    render,
   };
 };
 
 const TaskIt = app();
 
-TaskIt.addProject("Test");
-TaskIt.addProject("Test2");
-TaskIt.getProjectByName("test2").addTask("buy milk", "tomorrow", "high");
-TaskIt.getProjectByName("test2").getTasks();
+// TaskIt.createProject("Project name 1");
+// TaskIt.createProject("Project name 2");
+// TaskIt.createProject("Project name 3");
+// TaskIt.createProject("Project name 4");
+// TaskIt.createProject("Project name 5");
+// TaskIt.createTask("Task 1", "24-07-2024", "high");
+// TaskIt.createTask("Task 2", "24-07-2024", "high");
+// TaskIt.createTask("Task 3", "24-07-2024", "high");
+// TaskIt.createTask("Task 4", "24-07-2024", "high");
+// TaskIt.storageService.setItem("task-b57b4c5c-189f-48c0-b18d-622546425c5d", {
+//   id: "task-b57b4c5c-189f-48c0-b18d-622546425c5d",
+//   task: "Task 2",
+//   dueDate: "24-07-2024",
+//   priority: "high",
+//   projectId: "project-8a998a70-d3b7-41e6-9fe1-e1fac08a4240",
+//   isCompleted: false,
+// });
+let data = TaskIt.render();
 
-console.log(TaskIt.getProjects());
+// console.log(data);
