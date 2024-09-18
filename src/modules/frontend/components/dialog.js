@@ -54,6 +54,7 @@ const addTaskDialog = (projectId) => {
     const taskNameInput = document.createElement("input");
     const dueDateInput = document.createElement("input");
     const priorityInput = document.createElement("input");
+    priorityInput.setAttribute("pattern", "^[A-Za-z]$");
     const projectIdInput = document.createElement("input");
     const taskId = document.createElement("input");
     const submitButton = document.createElement("button");
@@ -131,6 +132,7 @@ const editTaskDialog = (projectId) => {
     const taskNameInput = document.createElement("input");
     const dueDateInput = document.createElement("input");
     const priorityInput = document.createElement("input");
+    priorityInput.setAttribute("pattern", "^[A-Za-z]$");
     const projectIdInput = document.createElement("input");
     const taskId = document.createElement("input");
     const submitButton = document.createElement("button");
@@ -180,22 +182,18 @@ const editTaskDialog = (projectId) => {
       const priorityInput = form.querySelector(".input__task-priority");
       const projectIdInput = form.querySelector(".input__task-projectID");
       console.log(taskName.value, dueDateInput.value, priorityInput.value);
-      const storageService = storage();
-      console.log(storageService);
+      const taskID = form.querySelector(".input__task-taskID");
 
-      storageService.setItem(projectIdInput.value, {
-        id: projectIdInput.value,
+      const storageService = storage();
+      let id = taskID.value;
+
+      storageService.setItem(id, {
+        id: taskID.value,
         task: taskName.value,
         dueDate: dueDateInput.value,
         priority: priorityInput.value,
         projectId: projectIdInput.value,
       });
-      createTask(
-        taskName.value,
-        dueDateInput.value,
-        priorityInput.value,
-        projectIdInput.value
-      );
     });
   };
 

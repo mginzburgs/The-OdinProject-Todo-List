@@ -3,6 +3,7 @@ import render from "../frontend/render";
 const storage = () => {
   const setItem = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
+    window.location.reload();
   };
 
   const getItem = (key) => {

@@ -86,7 +86,7 @@ const createEditTaskAddButton = (task) => {
       ? task.priority
       : "Task priority undefined";
 
-    console.log("CLICKED add task button with projectID: ", task.projectId);
+    console.log("CLICKED EDIT task button with TASK - ID: ", task.id);
 
     // console.log("add task to project button clicked", e.target);
   };
