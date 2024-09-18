@@ -1,3 +1,6 @@
+import { consoleLogClicked } from "../events";
+import storage from "../../backend/storage";
+
 const createDropDown = (projects) => {
   const data = projects;
 
@@ -14,6 +17,7 @@ const createDropDown = (projects) => {
         if (!dropdownToggle.contains(event.target)) {
           dropdownMenu.classList.remove("show");
         }
+
         return event.target.getAttribute("data-key");
       });
     });
@@ -29,6 +33,10 @@ const createDropDown = (projects) => {
       const dropdownItem = clone.querySelector(".dropdown__item");
       dropdownItem.textContent = value.projectName;
       dropdownItem.setAttribute("data-key", key);
+      dropdownItem.addEventListener("click", (e) => {
+        const storageService = storage();
+        storageService.removeItem(dropdownItem.getAttribute("data-key"));
+      });
       parent.appendChild(dropdownItem);
     });
   };

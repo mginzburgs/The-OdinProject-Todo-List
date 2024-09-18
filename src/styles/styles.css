@@ -204,3 +204,47 @@
   line-height: normal;
   letter-spacing: 2px;
 }
+
+.task-remove-dialog,
+.task-edit-dialog,
+.task-add-dialog,
+.project-add-dialog {
+  padding: 40px;
+  background: rgba(248, 221, 221, 0.47);
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* `margin: auto;` is the default. */
+  border-radius: 8px;
+  display: none;
+}
+.task-remove-dialog__form,
+.task-edit-dialog__form,
+.project-add-dialog__form {
+  display: flex;
+  gap: 20px;
+}
+
+.task-remove-dialog__button,
+.task-add-dialog__button,
+.project-add-dialog__button {
+  border: 0.5px solid;
+  background: linear-gradient(
+    90deg,
+    rgba(124, 184, 255, 0.13) 0%,
+    rgba(232, 229, 229, 0.13) 100%
+  );
+  letter-spacing: 2px;
+}
+.task-remove-dialog__button,
+.task-edit-dialog__form,
+.task-add-dialog__form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.show {
+  display: block;
+}

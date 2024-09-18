@@ -5,9 +5,10 @@ const createTask = (
   task = "Task name",
   dueDate = `${Date.now().getTime()}`,
   priority = `Normal`,
-  projectId = "No project assigned"
+  projectId = "No project assigned",
+  id = null
 ) => {
-  const _id = `task-${uuidv4()}`;
+  const _id = id ? id : `task-${uuidv4()}`;
   let isCompleted = false;
   const storageService = storage();
 

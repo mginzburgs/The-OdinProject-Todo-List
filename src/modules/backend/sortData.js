@@ -9,7 +9,7 @@ const sortData = () => {
     if (key.includes("project-")) {
       const project = value;
 
-      projects[key] = { ...value };
+      projects[key] = { ...value, tasks: [] };
     }
   }
 

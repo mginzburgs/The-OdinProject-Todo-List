@@ -1,3 +1,5 @@
+import render from "../frontend/render";
+
 const storage = () => {
   const setItem = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
@@ -22,6 +24,7 @@ const storage = () => {
 
   const removeItem = (key) => {
     localStorage.removeItem(key);
+    window.location.reload();
   };
 
   const saveTaskToStorage = (taskObject) => {
@@ -32,6 +35,7 @@ const storage = () => {
 
     tasks[taskObject.getID()] = taskObject;
     setItem(taskObject.getID(), taskObject);
+    window.location.reload();
   };
 
   const saveProjectToStorage = (projectObject) => {
@@ -42,6 +46,7 @@ const storage = () => {
 
     projects[projectObject.getID()] = projectObject;
     setItem(projectObject.getID(), projectObject);
+    window.location.reload();
   };
 
   return {
